@@ -1,38 +1,356 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #1d2c48;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* NAVBAR  */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.navbar h2 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.nav-icons span {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-icons span:hover {
+  opacity: 1;
+}
+
+/* SEARCH SECTION  */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.search-container input {
+  width: 400px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  border: none;
+  background-color: #2e3b51;
+  color: white;
+  font-size: 16px;
+  margin-right: 15px;
+  outline: none;
+}
+
+.search-container button {
+  background-color: #38bdf8;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/*  HERO WEATHER CARD  */
+.hero-card {
+  height: 250px;
+  border-radius: 30px;
+  padding: 40px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 10% 20%, #172554 0%, rgba(15, 19, 26, 1) 90%);
+  border: 1px solid rgba(86, 72, 72, 0.05);
+}
+
+.hero-card h1 {
+  font-size: 72px;
+  margin: 0;
+  font-weight: 300;
+  color: #fff;
+}
+
+.hero-card p {
+  margin: 5px 0 10px 0;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.hero-card h3 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* WEATHER GRID (Desktop and Tablet) */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/*  DETAIL BLOCKS  */
+.detail-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  background-color: transparent;
+  position: relative;
+}
+
+.grid>div {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid .label {
+  font-size: 16px;
   color: white;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.grid .value {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  color: #e2dada;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* --- MOBILE RESPONSIVENESS (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .navbar h2 {
+    font-size: 22px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-icons {
+    gap: 10px;
+    font-size: 15px;
   }
+
+  .search-container input {
+    width: 250px;
+    padding: 10px 15px;
+  }
+
+  .search-container button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .hero-card {
+    height: 180px;
+    padding: 20px;
+  }
+
+  .hero-card h1 {
+    font-size: 48px;
+  }
+
+  .hero-card h3 {
+    font-size: 18px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-block {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+}
+
+/* History Container */
+.history-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-blue-card {
+  background: linear-gradient(to right, #7dd3fc, #38bdf8);
+  /* Sky blue gradient */
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.history-blue-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+.card-left h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-left p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.history-temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 480px) {
+  .history-blue-card {
+    padding: 15px;
+  }
+
+  .card-left h3 {
+    font-size: 1.2rem;
+  }
+
+  .history-temp {
+    font-size: 1.8rem;
+  }
+}
+
+/* MODAL OVERLAY */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* MODAL BOX */
+.modal-content {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  background: #38bdf8;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-logo {
+  width: 60px;
+  height: 50px;
+  margin-right: 6px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.navbar h2 {
+  display: flex;
+  align-items: center;
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.value {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.sub-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: auto;
+}
+
+.side-nav-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.empty {
+  text-align: center;
 }
