@@ -29,6 +29,7 @@ function History({ unit, history, onSearch }) {
               </div>
               <div className="card-right">
                 <span className="history-temp">
+                  {/* BUG FIX: Convert the value if necessary */}
                   {displayTemp(item.main.temp)}
                   {unit === "metric" ? "°C" : "°F"}
                 </span>
@@ -40,5 +41,4 @@ function History({ unit, history, onSearch }) {
     </div>
   );
 }
-
 export default History;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import UnitModal from "./Components/UnitModel";
 import History from "./Components/History";
 import WeatherCard from "./Components/WeatherCard";
@@ -19,7 +19,7 @@ function App() {
 
   const API_KEY = "70108f6cff626f8ea1fafaf10fdb4f78";
 
-  const getWeather = async (cityName, shouldRedirect = false) => {
+  const getWeather = useCallback(async (cityName, shouldRedirect = false) => {
     if (!cityName) return;
     try {
       const currentRes = await axios.get(
@@ -43,11 +43,13 @@ function App() {
     } catch {
       alert("City not found!");
     }
-  };
+  }, [unit]);
 
   useEffect(() => {
-    if (city) getWeather(city);
-  }, [unit]);
+    if (city) {
+      getWeather(city);
+    }
+  }, [unit, city, getWeather]);
 
   return (
     <div className="main">
