@@ -1,4 +1,4 @@
-function UnitModal({ unit, setUnit, close }) {
+function UnitModel({ unit, setUnit, close }) {
   return (
     <div className="modal">
       <div className="modal-content">
@@ -28,4 +28,4 @@ function UnitModal({ unit, setUnit, close }) {
   );
 }
 
-export default UnitModal;
+export default UnitModel;
