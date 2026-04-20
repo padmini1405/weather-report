@@ -17,7 +17,7 @@ function App() {
   const [view, setView] = useState("home");
   const [city, setCity] = useState("");
 
-  const API_KEY = "70108f6cff626f8ea1fafaf10fdb4f78";
+  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const getWeather = useCallback(async (cityName, shouldRedirect = false) => {
     if (!cityName) return;
@@ -43,7 +43,7 @@ function App() {
     } catch {
       alert("City not found!");
     }
-  }, [unit]);
+  }, [unit, API_KEY]);
 
   useEffect(() => {
     if (city) {
