@@ -48,6 +48,6 @@ const API_KEY = "YOUR_API_KEY";
 * Unit toggle updates data dynamically
 
 ## How to view
-You can access my website by visiting this https://weather-report-d9qs.vercel.app/.Feel free to explore the content and get in touch.
+You can access my website by visiting this https://weather-report-pcl8.vercel.app/.Feel free to explore the content and get in touch.
 
 👩‍💻 Developed by Padmini K
